@@ -1,12 +1,5 @@
 # Order Management Modular API (Laravel 12)
 
-[![Starter Kit Source](https://img.shields.io/badge/starter-KalimeroMK%2Fmodular--laravel-blue?logo=github)](https://github.com/KalimeroMK/modular-laravel)
-
-> Maintained by [KalimeroMK on GitHub](https://github.com/KalimeroMK)
-
-A modular, API-only Laravel 12 project for order management, designed for scalability, maintainability, and clean architecture. Implements dynamic discount rules, strict typing, and modern backend best practices.
-
----
 
 ## 🚀 Features
 - Modular structure: each domain (Order, Product, Customer, SpecialDay) is a self-contained module under `app/Modules`.
@@ -24,7 +17,7 @@ A modular, API-only Laravel 12 project for order management, designed for scalab
 
 1. **Clone & Install**
    ```bash
-   git clone https://github.com/KalimeroMK/modular-laravel.git
+   git clone https://github.com/KalimeroMK/OrderManagementAPI
    cd Order
    composer install
    cp .env.example .env
