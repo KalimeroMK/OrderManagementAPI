@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Modules\{{module}}\Http\Actions;
+
+use App\Modules\{{module}}\Http\DTOs\{{module}}DTO;
+use App\Modules\{{module}}\Interfaces\{{class}}Interface;
+use App\Modules\{{module}}\Models\{{class}};
+
+class Create{{class}}Action
+{
+    public function __construct(protected {{class}}Interface $repository) {}
+
+    /**
+     * @return {{class}}|null
+     */
+    public function execute({{module}}DTO $dto): ?{{class}}
+    {
+        return $this->repository->create($dto->toArray());
+    }
+}

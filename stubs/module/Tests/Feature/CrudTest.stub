@@ -1,0 +1,62 @@
+<?php
+
+namespace Tests\Feature\Modules\{{module}};
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+use App\Modules\{{module}}\Models\{{module}};
+
+class {{module}}CrudTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_index_returns_ok()
+    {
+        $response = $this->getJson('/api/v1/{{module_lower}}s');
+        $response->assertOk();
+    }
+
+    public function test_store_creates_resource()
+    {
+        $related = $this->createRelatedModels();
+
+        $data = array_merge([
+            {{store_data}}
+        ], $related);
+
+        $response = $this->postJson('/api/v1/{{module_lower}}s', $data);
+        $response->assertCreated();
+    }
+
+    public function test_show_returns_resource()
+    {
+        $model = {{module}}::factory()->create();
+        $response = $this->getJson("/api/v1/{{module_lower}}s/{$model->id}");
+        $response->assertOk();
+    }
+
+    public function test_update_modifies_resource()
+    {
+        $model = {{module}}::factory()->create();
+
+        $data = array_merge([
+            {{update_data}}
+        ], $this->createRelatedModels());
+
+        $response = $this->putJson("/api/v1/{{module_lower}}s/{$model->id}", $data);
+        $response->assertOk();
+    }
+
+    public function test_destroy_deletes_resource()
+    {
+        $model = {{module}}::factory()->create();
+        $response = $this->deleteJson("/api/v1/{{module_lower}}s/{$model->id}");
+        $response->assertNoContent();
+    }
+
+    protected function createRelatedModels(): array
+    {
+        // This will be replaced dynamically
+        return {{related_factories}};
+    }
+}

@@ -1,0 +1,31 @@
+modules:
+  Product:
+    fields:
+      name: string
+      price: float
+    observers: true
+    policies: true
+
+  Order:
+    fields:
+      customer_id: foreign
+      order_date: date
+      status: string
+    relations:
+      customer: belongsTo:Customer
+      products: belongsToMany:Product
+    observers: true
+    policies: true
+
+  Customer:
+    fields:
+      name: string
+      email: string
+    observers: true
+    policies: true
+
+  SpecialDay:
+    fields:
+      date: date
+    observers: true
+    policies: true

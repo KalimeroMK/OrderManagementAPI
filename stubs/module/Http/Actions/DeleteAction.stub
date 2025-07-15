@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Modules\{{module}}\Http\Actions;
+
+use App\Modules\{{module}}\Interfaces\{{class}}Interface;
+use App\Modules\{{module}}\Models\{{class}};
+
+class Delete{{class}}Action
+{
+    public function __construct(protected {{class}}Interface $repository) {}
+
+    public function execute({{class}} $model): bool
+    {
+        return $this->repository->delete($model->id);
+    }
+}

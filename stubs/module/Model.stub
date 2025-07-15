@@ -1,0 +1,31 @@
+<?php
+
+{{phpdoc_block}}
+
+namespace App\Modules\{{module}}\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class {{module}} extends Model
+{
+    use HasFactory;
+
+    protected $table = '{{table}}';
+
+    protected $casts = [
+        {{casts}}
+    ];
+
+    protected $fillable = [
+        {{fillable}}
+    ];
+
+    public static function newFactory(): \App\Modules\{{module}}\Database\Factories\{{module}}Factory
+    {
+        return \App\Modules\{{module}}\Database\Factories\{{module}}Factory::new();
+    }
+
+    // RELATIONSHIPS
+    {{relationships}}
+}
