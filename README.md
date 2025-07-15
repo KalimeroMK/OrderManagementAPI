@@ -18,17 +18,17 @@
 1. **Clone & Install**
    ```bash
    git clone https://github.com/KalimeroMK/OrderManagementAPI
-   cd Order
-   composer install
    cp .env.example .env
-   # Set DB connection (SQLite recommended for tests)
-   php artisan key:generate
-   php artisan migrate --seed
+   # (Optional) Adjust .env if needed for Docker
+   docker compose up -d --build
+   docker compose exec app_module composer install
+   docker compose exec app_module php artisan key:generate
+   docker compose exec app_module php artisan migrate --seed
    ```
 
 2. **Run Tests**
    ```bash
-   php artisan test
+   docker compose exec app_module php artisan test
    ```
 
 ---
